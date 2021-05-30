@@ -10,24 +10,9 @@ extern "C" {
 #include "myfunc.hpp"
 }
 
-TEST(xwin, diagonal)
+TEST(x_win, row)
 {
-    std::string output_text = "Congratulations! Player with 'X' has won the game!";
-
-    testing::internal::CaptureStdout();
-
-    int select[] = {1,2,5,6,9};
-    int size=sizeof(select)/4;
-
-    tictactoe(select, size);
-    std::string text = testing::internal::GetCapturedStdout();
-
-    EXPECT_STREQ(text.c_str(), output_text.c_str());
-}
-
-TEST(xwin, horizontal)
-{
-    std::string output_text = "Congratulations! Player with 'X' has won the game!";
+    std::string output_text = "Игрок Х выиграл игру!!!";
 
     testing::internal::CaptureStdout();
 
@@ -40,9 +25,9 @@ TEST(xwin, horizontal)
     EXPECT_STREQ(text.c_str(), output_text.c_str());
 }
 
-TEST(xwin, vertical)
+TEST(x_win, column)
 {
-    std::string output_text = "Congratulations! Player with 'X' has won the game!";
+    std::string output_text = "Игрок Х выиграл игру!!!";
 
     testing::internal::CaptureStdout();
 
@@ -55,13 +40,13 @@ TEST(xwin, vertical)
     EXPECT_STREQ(text.c_str(), output_text.c_str());
 }
 
-TEST(owin, diagonal)
+TEST(x_win, diagonal)
 {
-    std::string output_text = "Congratulations! Player with 'O' has won the game!";
+    std::string output_text = "Игрок Х выиграл игру!!!";
 
     testing::internal::CaptureStdout();
 
-    int select[]={3,5,6,1,8,9};
+    int select[] = {1,2,5,6,9};
     int size=sizeof(select)/4;
 
     tictactoe(select, size);
@@ -70,9 +55,9 @@ TEST(owin, diagonal)
     EXPECT_STREQ(text.c_str(), output_text.c_str());
 }
 
-TEST(owin, horizontal)
+TEST(o_win, row)
 {
-    std::string output_text = "Congratulations! Player with 'O' has won the game!";
+    std::string output_text = "Игрок О выиграл игру!!!";
 
     testing::internal::CaptureStdout();
 
@@ -85,9 +70,9 @@ TEST(owin, horizontal)
     EXPECT_STREQ(text.c_str(), output_text.c_str());
 }
 
-TEST(owin, vertical)
+TEST(o_win, column)
 {
-    std::string output_text = "Congratulations! Player with 'O' has won the game!";
+    std::string output_text = "Игрок О выиграл игру!!!";
 
     testing::internal::CaptureStdout();
 
@@ -100,13 +85,13 @@ TEST(owin, vertical)
     EXPECT_STREQ(text.c_str(), output_text.c_str());
 }
 
-TEST(extra, draw)
+TEST(o_win, diagonal)
 {
-    std::string output_text = "GAME DRAW!";
+    std::string output_text = "Игрок О выиграл игру!!!";
 
     testing::internal::CaptureStdout();
 
-    int select[]={5,6,8,2,3,7,9,1,4};
+    int select[]={1,5,6,3,8,7};
     int size=sizeof(select)/4;
 
     tictactoe(select, size);
@@ -115,9 +100,24 @@ TEST(extra, draw)
     EXPECT_STREQ(text.c_str(), output_text.c_str());
 }
 
-TEST(extra, out_pos)
+TEST(minus, draw)
 {
-    std::string output_text = "Invalid Move";
+    std::string output_text = "Ничья!!!";
+
+    testing::internal::CaptureStdout();
+
+    int select[]={5,7,2,8,9,6,4,1,3};
+    int size=sizeof(select)/4;
+
+    tictactoe(select, size);
+    std::string text = testing::internal::GetCapturedStdout();
+
+    EXPECT_STREQ(text.c_str(), output_text.c_str());
+}
+
+TEST(minus, out_pos)
+{
+    std::string output_text = "Сделайте ход";
 
     testing::internal::CaptureStdout();
 
@@ -130,9 +130,9 @@ TEST(extra, out_pos)
     EXPECT_STREQ(text.c_str(), output_text.c_str());
 }
 
-TEST(extra, minus_pos)
+TEST(minus, minus_pos)
 {
-    std::string output_text = "Invalid Move";
+    std::string output_text = "Сделайте ход";
 
     testing::internal::CaptureStdout();
 
@@ -145,9 +145,9 @@ TEST(extra, minus_pos)
     EXPECT_STREQ(text.c_str(), output_text.c_str());
 }
 
-TEST(extra, game_is_not_finished)
+TEST(minus, game_is_not_finished)
 {
-    std::string output_text = "Not enough moves to identify the winner!";
+    std::string output_text = "Невозможно выявить победителя";
 
     testing::internal::CaptureStdout();
 
