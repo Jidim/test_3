@@ -5,7 +5,6 @@
 #include <gmock/gmock-matchers.h>
 #include "myfunc.hpp"
 
-/* using namespace testing; */
 extern "C" {
 #include "myfunc.hpp"
 }
@@ -100,7 +99,7 @@ TEST(o_win, diagonal)
     EXPECT_STREQ(text.c_str(), output_text.c_str());
 }
 
-TEST(minus, draw)
+TEST(draw, draw)
 {
     std::string output_text = "Ничья!!!";
 
@@ -117,26 +116,11 @@ TEST(minus, draw)
 
 TEST(minus, out_pos)
 {
-    std::string output_text = "Сделайте ход";
+    std::string output_text = "Невозможный ход";
 
     testing::internal::CaptureStdout();
 
     int select[]={10};
-    int size=sizeof(select)/4;
-
-    tictactoe(select, size);
-    std::string text = testing::internal::GetCapturedStdout();
-
-    EXPECT_STREQ(text.c_str(), output_text.c_str());
-}
-
-TEST(minus, minus_pos)
-{
-    std::string output_text = "Сделайте ход";
-
-    testing::internal::CaptureStdout();
-
-    int select[]={-1};
     int size=sizeof(select)/4;
 
     tictactoe(select, size);

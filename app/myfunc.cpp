@@ -22,7 +22,7 @@ void player_turn(int select){
         case 8: row=2; column=1; break;
         case 9: row=2; column=2; break;
         default:
-            cout<<"Сделайте ход";
+            cout<<"Невозможный ход";
     }
 
     if(turn == 'X' && board[row][column] != 'X' && board[row][column] != 'O'){
