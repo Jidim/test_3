@@ -6,7 +6,7 @@ before_install:
 
 addons:
   sonarcloud:
-    organization: "Jidim"
+    organization: "jidim"
     token: $SONAR_TOKEN
 
 script:
