@@ -214,7 +214,6 @@ void start(int swipe, int masking_cells, int board[9][9])
         big_row_swipe(block1, block2, board);
     }
     mask(masking_cells, board);
-    board_print(board);
 }
 
 void handler(int masking_cells)
