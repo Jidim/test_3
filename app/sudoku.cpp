@@ -36,7 +36,7 @@ bool make_move(int i, int j, int k, int(*board)[9])
     }
     if (k < 1 || k > 9)
     {
-        cout << "Значение может быть толко от 1 до 9";
+        cout << "Значение может быть только от 1 до 9" << endl;
         return false;
     }
 
