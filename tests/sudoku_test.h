@@ -121,8 +121,8 @@ TEST(swipe, bigRow)
     bool eq = true;
     
     for (int b = 0; b < 3; b++)
-        for(int j = 0; j < 9; j++)
-            if (board1[b+3][j] != board2[b][j] || board1[b][j] != board2[b+3][j])
+        for(int i = 0; i < 9; i++)
+            if (board1[i][b+3] != board2[i][b] || board1[i][b] != board2[i][b+3])
                 eq = false;
     
     EXPECT_EQ(eq, true);
@@ -138,8 +138,8 @@ TEST(swipe, bigLine)
     bool eq = true;
     
     for (int b = 0; b < 3; b++)
-        for(int i = 0; i < 9; i++)
-            if (board1[i][b+3] != board2[i][b] || board1[i][b] != board2[i][b+3])
+        for(int j = 0; j < 9; j++)
+            if (board1[b+3][j] != board2[b][j] || board1[b][j] != board2[b+3][j])
                 eq = false;
     
     EXPECT_EQ(eq, true);
