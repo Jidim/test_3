@@ -161,6 +161,47 @@ TEST(move, falsecoordinate)
     EXPECT_STREQ(text.c_str(), output_text.c_str());
 }
 
+TEST(move, notemptyplace)
+{
+    std::string output_text = "В этой ячейке уже есть значение, выберите ячейку со значением ноль\n";
+
+    testing::internal::CaptureStdout();
+    
+    int board[9][9];
+    start(0, 0, board);
+    
+    make_move(1, 1, 1, board);
+    
+    std::string text = testing::internal::GetCapturedStdout();
+
+    EXPECT_STREQ(text.c_str(), output_text.c_str());
+}
+
+TEST(move, wrongvalue)
+{
+    std::string output_text = "Значение может быть только от 1 до 9\n";
+
+    testing::internal::CaptureStdout();
+    
+    int board[9][9];
+    start(0, 0, board);
+    make_move(1, 1, 0, board);
+    
+    std::string text = testing::internal::GetCapturedStdout();
+
+    EXPECT_STREQ(text.c_str(), output_text.c_str());
+}
+
+TEST(move, ok)
+{
+    int board[9][9];
+    start(0, 0, board);
+    board[0][0] = 0;
+    make_move(1, 1, 1, board);
+    
+
+    EXPECT_EQ(board[1][1], 1);
+}
 
 TEST(print, zero)
 {
