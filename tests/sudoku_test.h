@@ -16,8 +16,11 @@ TEST(player_win, auto)
     testing::internal::CaptureStdout();
 
     int masking_cells = 0;
-
-    handler(masking_cells);
+    int board[9][9];
+    
+    start(0, masking_cells, board);
+    gameover(board);
+    
     std::string text = testing::internal::GetCapturedStdout();
 
     EXPECT_STREQ(text.c_str(), output_text.c_str());
