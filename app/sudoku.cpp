@@ -46,7 +46,7 @@ bool make_move(int i, int j, int k, int(*board)[9])
     return true;
 }
 
-void player_turn(int(*board)[9])
+void player_turn(istream &input_text, int(*board)[9])
 {
     int i;
     int j;
@@ -222,6 +222,6 @@ void handler(int masking_cells)
     start(10, masking_cells, board);
 
     for (int i = 0; i < masking_cells; i++)
-        player_turn(board);
+        player_turn(cin ,board);
     gameover(board);
 }
