@@ -243,7 +243,7 @@ TEST(masking, positive)
 {
     int board[9][9];
     start(0, 0, board);
-    mask(10, boaard)
+    mask(10, board);
     int k = 0;
     
     for (int i = 0; i < 9; i++)
