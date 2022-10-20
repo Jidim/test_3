@@ -238,4 +238,20 @@ TEST(masking, hungred)
 
     EXPECT_STREQ(text.c_str(), output_text.c_str());
 }
+
+TEST(masking, positive)
+{
+    int board[9][9];
+    start(0, 0, board);
+    mask(10, boaard)
+    int k = 0;
+    
+    for (int i = 0; i < 9; i++)
+        for (int j = 0; j < 9; j++)
+            if(board[i][j] == 0)
+                k++;
+    
+
+    EXPECT_EQ(k, 10);
+}
 #endif
