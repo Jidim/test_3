@@ -11,7 +11,7 @@ extern "C" {
 
 TEST(player_win, auto)
 {
-    std::string output_text = "Вы не допустили ни одной ошибки, игра выиграна";
+    std::string output_text = "Вы не допустили ни одной ошибки, игра выиграна\n";
 
     testing::internal::CaptureStdout();
 
