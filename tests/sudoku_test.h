@@ -144,4 +144,20 @@ TEST(swipe, bigLine)
     
     EXPECT_EQ(eq, true);
 }
+
+TEST(move, falsecoordinate)
+{
+    std::string output_text = "Введённые данные некоректны, значение столбца и строки должно быть от 1 до 9\n";
+
+    testing::internal::CaptureStdout();
+    
+    int board[9][9];
+    start(0, 0, board);
+    
+    make_move(0, 0, 1, board);
+    
+    std::string text = testing::internal::GetCapturedStdout();
+
+    EXPECT_STREQ(text.c_str(), output_text.c_str());
+}
 #endif
