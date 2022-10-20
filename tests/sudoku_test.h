@@ -117,7 +117,7 @@ TEST(swipe, bigRow)
     int board2[9][9];
     start(0, 0, board1);
     start(0, 0, board2);
-    big_Row_swipe(1, 0, board1);
+    big_row_swipe(1, 0, board1);
     bool eq = true;
     
     for (int b = 0; b < 3; b++)
