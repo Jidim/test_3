@@ -137,9 +137,6 @@ TEST(swipe, bigLine)
     big_line_swipe(1, 0, board1);
     bool eq = true;
     
-    board_print(board1);
-    board_print(board2);
-    
     for (int b = 0; b < 3; b++)
         for(int i = 0; i < 9; i++)
             if (board1[i][b+3] != board2[i][b] || board1[i][b] != board2[i][b+3])
