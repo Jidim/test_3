@@ -9,7 +9,7 @@ extern "C" {
 #include "sudoku.hpp"
 }
 
-TEST(player_win)
+TEST(player_win, auto)
 {
     std::string output_text = "Вы не допустили ни одной ошибки, игра выиграна";
 
@@ -23,7 +23,7 @@ TEST(player_win)
     EXPECT_STREQ(text.c_str(), output_text.c_str());
 }
 
-TEST(generator)
+TEST(generator, different)
 {
     int board1[9][9];
     int board2[9][9];
@@ -33,7 +33,7 @@ TEST(generator)
     EXPECT_NE(board1, board2);
 }
 
-TEST(rowError)
+TEST(error, row)
 {
     int board[9][9];
     start(0, 0, board);
@@ -42,7 +42,7 @@ TEST(rowError)
     EXPECT_EQ(row_error(board), true);
 }
 
-TEST(collumnError)
+TEST(error, line)
 {
     int board[9][9];
     start(0, 0, board);
@@ -51,7 +51,7 @@ TEST(collumnError)
     EXPECT_EQ(line_error(board), true);
 }
 
-TEST(blockError)
+TEST(error, block)
 {
     int board[9][9];
     start(0, 0, board);
