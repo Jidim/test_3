@@ -1,6 +1,8 @@
 #ifndef SUDOKU_HPP
 #define SUDOKU_HPP
 
+void board_print(int(*board)[9]);
+
 void handler(int masking_cells);
 
 void gameover(int(*board)[9]);
