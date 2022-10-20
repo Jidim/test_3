@@ -225,5 +225,17 @@ TEST(print, zero)
     EXPECT_STREQ(text.c_str(), output_text.c_str());
 }
 
+TEST(masking, hungred)
+{
+    std::string output_text = "Невозможно замаскировать столько клеток, максимум 81\n";
+    
+    testing::internal::CaptureStdout();
+        
+    int board[9][9];
+    start(0, 100, board);
+    
+    std::string text = testing::internal::GetCapturedStdout();
 
+    EXPECT_STREQ(text.c_str(), output_text.c_str());
+}
 #endif
