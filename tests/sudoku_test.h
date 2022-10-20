@@ -211,7 +211,11 @@ TEST(print, zero)
     testing::internal::CaptureStdout();
     
     int board[9][9];
-    start(0, 0, board);
+    for (int i = 0; i < 9; i++)
+        for (int j = 0; j < 9; j++)
+        {
+            board[i][j] = 0;
+        }
     
     board_print(board);
     
