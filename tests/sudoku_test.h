@@ -160,4 +160,32 @@ TEST(move, falsecoordinate)
 
     EXPECT_STREQ(text.c_str(), output_text.c_str());
 }
+
+
+TEST(print, zero)
+{
+    std::string output_text = 
+"000 000 000
+000 000 000
+000 000 000
+
+000 000 000
+000 000 000
+000 000 000
+
+000 000 000
+000 000 000
+000 000 000";
+
+    testing::internal::CaptureStdout();
+    
+    int board[9][9];
+    start(0, 0, board);
+    
+    board_print(board);
+    
+    std::string text = testing::internal::GetCapturedStdout();
+
+    EXPECT_STREQ(text.c_str(), output_text.c_str());
+}
 #endif
