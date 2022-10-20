@@ -173,7 +173,7 @@ void start(int swipe, int masking_cells, int board[9][9])
 {
     if (masking_cells > 81)
     {
-        cout << "Невозможно замаскировать столько клеток, максимум 81";
+        cout << "Невозможно замаскировать столько клеток, максимум 81" << endl;
         return;
     }
     for (int i = 0; i < 9; i++)
