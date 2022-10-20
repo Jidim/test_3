@@ -185,6 +185,7 @@ TEST(move, wrongvalue)
     
     int board[9][9];
     start(0, 0, board);
+    board[0][0] = 0;
     make_move(1, 1, 0, board);
     
     std::string text = testing::internal::GetCapturedStdout();
@@ -200,7 +201,7 @@ TEST(move, ok)
     make_move(1, 1, 1, board);
     
 
-    EXPECT_EQ(board[1][1], 1);
+    EXPECT_EQ(board[0][0], 1);
 }
 
 TEST(print, zero)
@@ -223,4 +224,6 @@ TEST(print, zero)
 
     EXPECT_STREQ(text.c_str(), output_text.c_str());
 }
+
+
 #endif
