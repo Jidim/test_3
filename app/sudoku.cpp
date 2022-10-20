@@ -162,8 +162,8 @@ void mask(int cells, int(*board)[9])
         int j = rand() % 9;
         while (board[i][j] == 0)
         {
-            int i = rand() % 9;
-            int j = rand() % 9;
+            i = rand() % 9;
+            j = rand() % 9;
         }
         board[i][j] = 0;
     }
