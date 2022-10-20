@@ -55,11 +55,11 @@ void player_turn(istream &input_text, int(*board)[9])
     do
     {
         cout << "Введите номер столбца, в котором хотите ввести значение" << endl;
-        cin >> j;
+        input_text >> j;
         cout << "Введите номер  строки, в котором хотите ввести значение" << endl;
-        cin >> i;
+        input_text >> i;
         cout << "Введите значение от 1 до 9" << endl;
-        cin >> k;
+        input_text >> k;
     } while (!make_move(i, j, k, board));
 }
 
