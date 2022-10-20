@@ -151,7 +151,7 @@ void small_row_swipe(int j1, int j2, int(*board)[9])
 void big_row_swipe(int b1, int b2, int(*board)[9])
 {
     for (int j = 0; j < 3; j++)
-        small_line_swipe(j + b1 * 3, j + b2 * 3, board);
+        small_row_swipe(j + b1 * 3, j + b2 * 3, board);
 }
 
 void mask(int cells, int(*board)[9])
