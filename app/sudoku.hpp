@@ -1,6 +1,7 @@
-#include <stdio.h>
 #ifndef SUDOKU_HPP
 #define SUDOKU_HPP
+
+#include <stdio.h>
 
 void player_turn(istream &input_text, int(*board)[9]);
 
