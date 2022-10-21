@@ -279,6 +279,6 @@ TEST(hunting, positive)
     
     hunter(board);
     
-    EXPECT_EQ(board[0][3], 0);
+    EXPECT_EQ(board[0][2], 0);
 }
 #endif
