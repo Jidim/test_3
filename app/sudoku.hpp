@@ -5,6 +5,8 @@
 
 void player_turn(std::istream &input_text, int(*board)[9], int t);
 
+void hunter(int (*board)[9]);
+
 void board_print(int(*board)[9]);
 
 void handler(int masking_cells, std::istream &inpute);
