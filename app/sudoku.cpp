@@ -46,22 +46,23 @@ bool make_move(int i, int j, int k, int(*board)[9])
     return true;
 }
 
-void player_turn(istream &input_text, int(*board)[9])
+void player_turn(istream &input_text, int(*board)[9], int t)
 {
     
     int i;
     int j;
     int k;
 
-    do
-    {
-        cout << "Введите номер столбца, в котором хотите ввести значение" << endl;
-        input_text >> j;
-        cout << "Введите номер  строки, в котором хотите ввести значение" << endl;
-        input_text >> i;
-        cout << "Введите значение от 1 до 9" << endl;
-        input_text >> k;
-    } while (!make_move(i, j, k, board));
+    for (; t > 0; t--)
+        do
+        {
+            cout << "Введите номер столбца, в котором хотите ввести значение" << endl;
+            input_text >> j;
+            cout << "Введите номер  строки, в котором хотите ввести значение" << endl;
+            input_text >> i;
+            cout << "Введите значение от 1 до 9" << endl;
+            input_text >> k;
+        } while (!make_move(i, j, k, board));
 }
 
 bool row_error(int(*board)[9]) {
@@ -223,7 +224,7 @@ void handler(int masking_cells, istream &inpute)
     int board[9][9];
     start(10, masking_cells, board);
 
-    for (int i = 0; i < masking_cells; i++)
-        player_turn(inpute, board);
+    player_turn(inpute, board, masking_cells);
+    
     gameover(board);
 }
