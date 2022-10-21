@@ -156,6 +156,17 @@ void big_row_swipe(int b1, int b2, int(*board)[9])
         small_row_swipe(j + b1 * 3, j + b2 * 3, board);
 }
 
+void hunter(int (*board)[9])
+{
+    for (int i = 0; i < 9; i++)
+        for (int j = 0; j < 9; j++)
+            if (board[i][j] != 0 && !ready)
+            {
+                board[i][j] = 0;
+                return;
+            }
+}
+
 void mask(int cells, int(*board)[9])
 {
     for (int k = 0; k < cells; k++)
@@ -163,16 +174,7 @@ void mask(int cells, int(*board)[9])
         int i = rand() % 9;
         int j = rand() % 9;
         if (board[i][j] == 0)
-        {
-            bool ready= false;
-            for (int i = 0; i < 9; i++)
-                for (int j = 0; j < 9; j++)
-                    if (board[i][j] != 0 && !ready)
-                    {
-                        board[i][j] = 0;
-                        ready = true;
-                    }
-        }
+            hunter(board);
         else
             board[i][j] = 0;
     }
