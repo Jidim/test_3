@@ -74,7 +74,7 @@ TEST(handler, zero)
 
     int masking_cells = 0;
     
-    handler(masking_cells);
+    handler(masking_cells, cin);
     
     std::string text = testing::internal::GetCapturedStdout();
 
@@ -265,7 +265,7 @@ TEST(input, positive)
     board[0][0] = 0;
     std::string test_input = "1\n1\n1\n";
     stringstream fake_input(test_input);
-    player_turn(fake_input, board);
+    player_turn(fake_input, board, 1);
 
     EXPECT_EQ(board[0][0], 1);
 }
