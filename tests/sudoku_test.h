@@ -12,7 +12,7 @@ extern "C" {
 #include "sudoku.hpp"
 }
 
-TEST(player_win, auto)
+TEST(player_win, test1)
 {
     std::string output_text = "Вы не допустили ни одной ошибки, игра выиграна\n";
 
