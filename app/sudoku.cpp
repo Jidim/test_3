@@ -163,10 +163,16 @@ void mask(int cells, int(*board)[9])
         int i = rand() % 9;
         int j = rand() % 9;
         if (board[i][j] == 0)
+        {
+            bool ready= false;
             for (int i = 0; i < 9; i++)
                 for (int j = 0; j < 9; j++)
-                    if (board[i][j] != 0)
+                    if (board[i][j] != 0 && !ready)
+                    {
                         board[i][j] = 0;
+                        ready = true;
+                    }
+        }
         else
             board[i][j] = 0;
     }
