@@ -3,7 +3,7 @@
 
 #include <istream>
 
-void player_turn(istream &input_text, int(*board)[9]);
+void player_turn(std::istream &input_text, int(*board)[9]);
 
 void board_print(int(*board)[9]);
 
