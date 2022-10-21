@@ -4,7 +4,7 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock-matchers.h>
 #include "sudoku.hpp"
-
+#include <string>
 extern "C" {
 #include "sudoku.hpp"
 }
@@ -260,7 +260,7 @@ TEST(input, positive)
     int board[9][9];
     start(0, 0, board);
     board[0][0] = 0;
-    string test_input = "1\n1\n1\n";
+    std::string test_input = "1\n1\n1\n";
     
     player_turn(test_input, board);
 
