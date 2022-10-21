@@ -269,4 +269,16 @@ TEST(input, positive)
 
     EXPECT_EQ(board[0][0], 1);
 }
+
+TEST(hunting, positive)
+{
+    int board[9][9];
+    start(0,0,board);
+    board[0][0] = 0;
+    board[0][1] = 0;
+    
+    hunter(board);
+    
+    EXPECT_EQ(board[0][3], 0);
+}
 #endif
