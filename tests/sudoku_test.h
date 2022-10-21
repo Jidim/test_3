@@ -254,4 +254,16 @@ TEST(masking, positive)
 
     EXPECT_EQ(k, 10);
 }
+
+TEST(input, positive)
+{
+    int board[9][9];
+    start(0, 0, board);
+    board[0][0] = 0;
+    string test_input = "1\n1\n1\n";
+    
+    player_turn(test_input, board);
+
+    EXPECT_EQ(board[0][0], 1);
+}
 #endif
