@@ -5,6 +5,9 @@
 #include <gmock/gmock-matchers.h>
 #include "sudoku.hpp"
 #include <string>
+
+using namespace std;
+
 extern "C" {
 #include "sudoku.hpp"
 }
@@ -261,8 +264,8 @@ TEST(input, positive)
     start(0, 0, board);
     board[0][0] = 0;
     std::string test_input = "1\n1\n1\n";
-    
-    player_turn(test_input, board);
+    stringstream fake_input(test_input);
+    player_turn(fake_input, board);
 
     EXPECT_EQ(board[0][0], 1);
 }
