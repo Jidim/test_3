@@ -7,7 +7,7 @@ void player_turn(std::istream &input_text, int(*board)[9]);
 
 void board_print(int(*board)[9]);
 
-void handler(int masking_cells);
+void handler(int masking_cells, std::istream &inpute);
 
 void gameover(int(*board)[9]);
 
