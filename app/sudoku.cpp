@@ -48,6 +48,7 @@ bool make_move(int i, int j, int k, int(*board)[9])
 
 void player_turn(istream &input_text, int(*board)[9])
 {
+    
     int i;
     int j;
     int k;
@@ -160,12 +161,13 @@ void mask(int cells, int(*board)[9])
     {
         int i = rand() % 9;
         int j = rand() % 9;
-        while (board[i][j] == 0)
-        {
-            i = rand() % 9;
-            j = rand() % 9;
-        }
-        board[i][j] = 0;
+        if (board[i][j] == 0)
+            for (int i = 0; i < 9; i++)
+                for (int j = 0; j < 9; j++)
+                    if (board[i][j] != 0)
+                        board[i][j] = 0;
+        else
+            board[i][j] = 0;
     }
 }
 
@@ -222,6 +224,6 @@ void handler(int masking_cells, istream &inpute)
     start(10, masking_cells, board);
 
     for (int i = 0; i < masking_cells; i++)
-        player_turn(inpute ,board);
+        player_turn(inpute, board);
     gameover(board);
 }
