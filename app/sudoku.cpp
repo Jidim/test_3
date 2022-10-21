@@ -216,12 +216,12 @@ void start(int swipe, int masking_cells, int board[9][9])
     mask(masking_cells, board);
 }
 
-void handler(int masking_cells)
+void handler(int masking_cells, istream &inpute)
 {
     int board[9][9];
     start(10, masking_cells, board);
 
     for (int i = 0; i < masking_cells; i++)
-        player_turn(cin ,board);
+        player_turn(inpute ,board);
     gameover(board);
 }
